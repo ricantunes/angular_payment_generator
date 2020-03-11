@@ -1,0 +1,32 @@
+
+  <div class="container col-4">
+
+    <div class="row">
+      <div class="col-md-4">
+        <input class="form-control" placeholder="Character" type="text" [disabled]="isBlocked" (keyup)="useCharValue($event)" (keypress)="alphabetOnly($event)">
+      </div>
+      <div class="col-md-3"></div>
+      <div class="col-md-5">
+        <button type="button" class="btn btn-dark" (click)="generateGrid()">Generate 2D grid</button>
+      </div>
+    </div>
+
+  </div>
+
+  <p></p>
+
+  <table class="container col-4">
+    <tr class="row justify-content-md-center" *ngFor="let row of matrix.slice(0, matrix.length / nColumns % 1 === 0 ? matrix.length / nColumns : matrix.length / nColumns + 1); let idx = index">
+      <td class="col-1" *ngFor="let x of matrix.slice(idx * nColumns, idx * nColumns + nColumns)">
+        <span class="square">{{ x.value }}</span>
+      </td>
+    </tr>
+  </table>
+
+  <p></p>
+
+  <div class="d-flex justify-content-center">
+    <label>Your code: {{code}}</label>
+  </div>
+
+

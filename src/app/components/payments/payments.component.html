@@ -1,0 +1,42 @@
+<div class="container">
+
+  <div class="d-flex justify-content-center" >
+    <label>Your code now: {{ code }}</label>
+  </div>
+
+  <p></p>
+
+  <div class="row">
+    <div class="col-md-2 mb-3">
+      <input #payment class="form-control" type="text" placeholder="Payment">
+    </div>
+    <div class="col-md-2 mb-3">
+      <input #amount class="form-control" type="text" placeholder="Amount">
+    </div>
+    <div class="col-md-2 mb-1">
+      <button type="button" class="btn btn-dark" (click)="addPayment(payment.value, amount.value)">+ Add</button>
+    </div>
+  </div>
+
+  <p></p>
+
+  <table class="table table-bordered table-striped">
+    <thead class="thead-dark">
+      <tr>
+        <th class="col-6" scope="col">Name</th>
+        <th class="col-2" scope="col">Amount</th>
+        <th class="col-2" scope="col">Code</th>
+        <th class="col-2" scope="col">Grid</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let payment of paymentsList">
+        <td class="col-6">{{payment.name}}</td>
+        <td class="col-2">{{payment.amount}}</td>
+        <td class="col-2">{{payment.code}}</td>
+        <td class="col-2">{{payment.grid.length}}</td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
